@@ -1,0 +1,27 @@
+#!/bin/bash
+# A script that creates symlinks to the default locations of many dotfiles.
+# TODO: add arguments that would allow you to choose whether you want to use the default dir name "dotfiles". Should be dotfiles by default for speed's sake.
+# TODO: add argument to initialize a git repository, default behavior no
+
+if [ ! -d "/home/$USER/dotfiles" ]; then
+  echo "Creating directory \"dotfiles\"..."
+  mkdir ~/dotfiles
+else
+  echo "Directory dotfiles exists."
+fi
+
+echo "Creating symlinks..."
+
+ln -sf ~/dotfiles/.bash_profile ~/.bash_profile 
+ln -sf ~/dotfiles/.bashrc ~/.bashrc 
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.i3status.conf ~/.i3status.conf  
+ln -sf ~/dotfiles/.vim ~/.vim 
+ln -sf ~/dotfiles/.xbindkeysrc ~/.xbindkeysrc 
+ln -sf ~/dotfiles/.Xdefaults ~/.Xdefaults 
+ln -sf ~/dotfiles/.xinitrc ~/.xinitrc 
+ln -sf ~/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sf ~/dotfiles/.config/i3/config ~/.config/i3/config
+ln -sf ~/dotfiles/.config/mutt/muttrc ~/.config/mutt/muttrc
+
+echo "Done."
